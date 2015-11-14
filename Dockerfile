@@ -6,6 +6,9 @@ ENV GITLAB_CI_TOKEN=runners
 ENV GITLAB_CI_NAME=java-maven-sonar-1
 ENV GITLAB_CI_EXECUTOR=shell
 ENV SONAR_HOST_URL=myserver:9000
+ENV SONAR_JDBC_URL=
+ENV SONAR_JDBC_USER=
+ENV SONAR_JDBC_PWD=
 
 # Install Java, maven, sonar.
 RUN \
