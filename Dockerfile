@@ -24,10 +24,10 @@ COPY config.toml /etc/gitlab-runner/config.toml
 
 # GitLab runner properties
 RUN \
-  sed "s/GITLAB_CI_URL/${GITLAB_CI_URL}/" /etc/gitlab-runner/config.toml && \
-  sed "s/GITLAB_CI_TOKEN/${GITLAB_CI_TOKEN}/" /etc/gitlab-runner/config.toml && \
-  sed "s/GITLAB_CI_NAME/${GITLAB_CI_NAME}/" /etc/gitlab-runner/config.toml && \
-  sed "s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/" /etc/gitlab-runner/config.toml && \
+  sed -n "s/GITLAB_CI_URL/${GITLAB_CI_URL}/" /etc/gitlab-runner/config.toml && \
+  sed -n "s/GITLAB_CI_TOKEN/${GITLAB_CI_TOKEN}/" /etc/gitlab-runner/config.toml && \
+  sed -n "s/GITLAB_CI_NAME/${GITLAB_CI_NAME}/" /etc/gitlab-runner/config.toml && \
+  sed -n "s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/" /etc/gitlab-runner/config.toml && \
 
 # Sonar maven profile
 #RUN \
