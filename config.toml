@@ -1,0 +1,13 @@
+concurrent = 1
+
+[[runners]]
+  url = "GITLAB_CI_URL"
+  token = "GITLAB_CI_TOKEN"
+  name = "GITLAB_CI_NAME"
+  executor = "GITLAB_CI_EXECUTOR"
+  [runners.ssh]
+  [runners.docker]
+    image = ""
+    privileged = false
+  [runners.parallels]
+    base_name = ""
