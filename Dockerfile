@@ -37,3 +37,7 @@ COPY settings.xml /home/gitlab-runner/.m2/settings.xml
 # Install openssh-server, maven and git.
 RUN apt-get install -q -y maven git
 RUN apt-get clean
+
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
