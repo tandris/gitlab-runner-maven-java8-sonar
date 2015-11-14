@@ -7,9 +7,10 @@
             </activation>
             <properties>
                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                  SONAR_HOST_URL
-                </sonar.host.url>
+                <sonar.host.url>SONAR_HOST_URL</sonar.host.url>
+		<sonar.jdbc.url>SONAR_JDBC_URL</sonar.jdbc.url>
+		<sonar.jdbc.username>SONAR_JDBC_USER</sonar.jdbc.username>
+		<sonar.jdbc.password>SONAR_JDBC_PWD</sonar.jdbc.password>
             </properties>
         </profile>
      </profiles>
