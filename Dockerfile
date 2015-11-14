@@ -18,7 +18,7 @@ RUN \
 #RUN \
 #  wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip && \
 #  unzip sonar-runner-dist-2.4.zip && \
-#  mv sonar-runner-2.4 /opt/sonar-runner && \
+#  mv sonar-runner-2.4 /opt/sonar-runner
   
 COPY config.toml /etc/gitlab-runner/config.toml
 COPY settings.xml /home/gitlab-runner/.m2/settings.xml
@@ -28,11 +28,11 @@ COPY settings.xml /home/gitlab-runner/.m2/settings.xml
 #  sed -n "s/GITLAB_CI_URL/${GITLAB_CI_URL}/" /etc/gitlab-runner/config.toml && \
 #  sed -n "s/GITLAB_CI_TOKEN/${GITLAB_CI_TOKEN}/" /etc/gitlab-runner/config.toml && \
 #  sed -n "s/GITLAB_CI_NAME/${GITLAB_CI_NAME}/" /etc/gitlab-runner/config.toml && \
-#  sed -n "s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/" /etc/gitlab-runner/config.toml && \
+#  sed -n "s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/" /etc/gitlab-runner/config.toml
 
 # Sonar maven profile
 #RUN \
-#  sed s/SONAR_HOST_URL/${SONAR_HOST_URL}/ /etc/gitlab-runner/config.toml && \
+#  sed s/SONAR_HOST_URL/${SONAR_HOST_URL}/ /etc/gitlab-runner/config.toml
   
 # Install openssh-server, maven and git.
 RUN apt-get install -q -y maven git
