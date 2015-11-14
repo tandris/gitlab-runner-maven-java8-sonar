@@ -15,10 +15,10 @@ RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
   apt-get install -q -y oracle-java8-installer && \
   
-RUN \
-  wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip && \
-  unzip sonar-runner-dist-2.4.zip && \
-  mv sonar-runner-2.4 /opt/sonar-runner && \
+#RUN \
+#  wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip && \
+#  unzip sonar-runner-dist-2.4.zip && \
+#  mv sonar-runner-2.4 /opt/sonar-runner && \
   
 COPY config.toml /etc/gitlab-runner/config.toml
 COPY settings.xml /home/gitlab-runner/.m2/settings.xml
