@@ -21,10 +21,11 @@ RUN \
   
 COPY config.toml /etc/gitlab-runner/config.toml
 
-RUN sed s/GITLAB_CI_URL/${GITLAB_CI_URL}/ /etc/gitlab-runner/config.toml
-#  sed s/GITLAB_CI_TOKEN/${GITLAB_CI_TOKEN}/ config.toml && \
-#  sed s/GITLAB_CI_NAME/${GITLAB_CI_NAME}/ config.toml && \
-#  sed s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/ config.toml && \
+RUN \
+  sed s/GITLAB_CI_URL/${GITLAB_CI_URL}/ /etc/gitlab-runner/config.toml && \
+  sed s/GITLAB_CI_TOKEN/${GITLAB_CI_TOKEN}/ /etc/gitlab-runner/config.toml && \
+  sed s/GITLAB_CI_NAME/${GITLAB_CI_NAME}/ /etc/gitlab-runner/config.toml && \
+  sed s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/ /etc/gitlab-runner/config.toml && \
 
 # Install openssh-server, maven and git.
 RUN apt-get install -q -y maven git
