@@ -5,6 +5,7 @@ ENV GITLAB_CI_URL=http://yourgitlabci.com/ci
 ENV GITLAB_CI_TOKEN={/ci/admin/runners}
 ENV GITLAB_CI_NAME=java-maven-sonar-1
 ENV GITLAB_CI_EXECUTOR=shell
+ENV SONAR_HOST_URL=http://myserver:9000
 
 # Install Java, maven, sonar.
 RUN \
@@ -21,12 +22,17 @@ RUN \
   
 COPY config.toml /etc/gitlab-runner/config.toml
 
+# GitLab runner properties
 RUN \
-  sed s/GITLAB_CI_URL/${GITLAB_CI_URL}/ /etc/gitlab-runner/config.toml && \
-  sed s/GITLAB_CI_TOKEN/${GITLAB_CI_TOKEN}/ /etc/gitlab-runner/config.toml && \
-  sed s/GITLAB_CI_NAME/${GITLAB_CI_NAME}/ /etc/gitlab-runner/config.toml && \
-  sed s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/ /etc/gitlab-runner/config.toml && \
+  sed "s/GITLAB_CI_URL/${GITLAB_CI_URL}/" /etc/gitlab-runner/config.toml && \
+  sed "s/GITLAB_CI_TOKEN/${GITLAB_CI_TOKEN}/" /etc/gitlab-runner/config.toml && \
+  sed "s/GITLAB_CI_NAME/${GITLAB_CI_NAME}/" /etc/gitlab-runner/config.toml && \
+  sed "s/GITLAB_CI_EXECUTOR/${GITLAB_CI_EXECUTOR}/" /etc/gitlab-runner/config.toml && \
 
+# Sonar maven profile
+#RUN \
+#  sed s/SONAR_HOST_URL/${SONAR_HOST_URL}/ /etc/gitlab-runner/config.toml && \
+  
 # Install openssh-server, maven and git.
 RUN apt-get install -q -y maven git
 RUN apt-get clean
