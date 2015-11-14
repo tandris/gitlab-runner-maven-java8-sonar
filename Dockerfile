@@ -19,7 +19,7 @@ RUN \
   unzip sonar-runner-dist-2.4.zip && \
   mv sonar-runner-2.4 /opt/sonar-runner && \
   
-#COPY config.toml /etc/gitlab-runner/config.toml
+COPY config.toml /etc/gitlab-runner/config.toml
 
 #RUN \
 #  sed s/GITLAB_CI_URL/${GITLAB_CI_URL}/ config.toml && \
